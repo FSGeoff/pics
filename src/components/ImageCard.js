@@ -6,14 +6,17 @@ class ImageCard extends React.Component {
 
         this.state = { spans: 0 };
 
+        //Used to retrieve image info
         this.imageRef = React.createRef();
     }
 
     componentDidMount() {
+        //waits until images are loaded
         this.imageRef.current.addEventListener('load', this.setSpans);
     }
 
     setSpans = () => {
+        //gets height of image
         const height = this.imageRef.current.clientHeight;
         const spans = Math.ceil(height / 10);
 
